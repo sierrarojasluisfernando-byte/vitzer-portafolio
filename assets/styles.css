@@ -20,6 +20,11 @@
     --shadow: 0 1px 2px rgba(20,30,60,0.05), 0 10px 28px -14px rgba(20,30,60,0.16);
     --bubble-them: #FFFFFF;
     --bubble-me: #EEF0FF;
+
+    --shell: 1360px;
+    --gutter: clamp(1rem, 3vw, 2.5rem);
+    --prose: 68ch;
+    --measure-narrow: 52ch;
   }
 
   * { box-sizing: border-box; }
@@ -49,8 +54,8 @@
 
   a { color: var(--accent-deep); }
 
-  .wrap { max-width: 700px; margin: 0 auto; padding: 0 24px; }
-  .wrap-wide { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); }
+  .wrap-wide { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); }
 
   .center { text-align: center; }
 
@@ -156,16 +161,16 @@
 
   /* ---------- Sections ---------- */
   section.block { padding-top: 60px; padding-bottom: 60px; border-top: 1px solid var(--line); }
-  .section-head { text-align: center; max-width: 560px; margin: 0 auto; }
+  .section-head { text-align: center; max-width: var(--measure-narrow); margin: 0 auto; }
   .section-head h2 { font-size: clamp(26px, 3.2vw, 36px); margin-top: 12px; line-height: 1.16; }
   .section-head p.lede { margin: 16px 0 0; color: var(--ink-soft); font-size: 16.5px; }
-  .section-content { max-width: 620px; margin: 36px auto 0; }
-  .section-content.wide { max-width: 780px; }
+  .section-content { max-width: var(--prose); margin: 36px auto 0; }
+  .section-content.wide { max-width: var(--shell); }
 
   /* ---------- Problem list ---------- */
   .pain-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-  .pain-list li { padding-left: 24px; position: relative; color: var(--ink-soft); }
-  .pain-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .pain-list li { display: flex; justify-content: center; align-items: flex-start; gap: 10px; text-align: left; color: var(--ink-soft); }
+  .pain-list li::before { content: '→'; flex-shrink: 0; color: var(--accent); font-weight: 700; }
 
   /* ---------- Numbered process ---------- */
   .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: flex; flex-direction: column; }
@@ -247,7 +252,7 @@
 
   /* ---------- Pricing ---------- */
   .price-lead { max-width: 620px; margin: 0 auto 28px; text-align: center; font-size: 15px; color: var(--ink-soft); }
-  .price-grid { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .price-grid { margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; } }
   .price-card {
     background: var(--surface-raised); border: 1px solid var(--accent); border-radius: 16px;
@@ -339,7 +344,8 @@
     border-bottom: 1px solid var(--line);
   }
   .topnav-inner {
-    max-width: 780px; margin: 0 auto; padding: 12px 24px;
+    max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter);
+    padding-top: 12px; padding-bottom: 12px;
     display: flex; align-items: center; justify-content: space-between;
   }
   .topnav-brand { font-family:'Manrope',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.02em; color: var(--accent); text-decoration:none; }
@@ -395,7 +401,7 @@
 
 /* === PRODUCTOS (productos.html) === */
 
-  .products-wrap { max-width: 900px; margin: 0 auto; padding: 56px 24px 80px; }
+  .products-wrap { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); padding-top: 56px; padding-bottom: 80px; }
   .products-head { text-align: center; max-width: 620px; margin: 0 auto; }
   .products-head h1 { font-family:'Manrope',sans-serif; font-weight:800; font-size: clamp(28px,4vw,40px); }
   .products-head p.lede { margin-top: 14px; color: var(--ink-soft); font-size: 16px; }
@@ -417,7 +423,7 @@
 
 /* === CONTACTO (contacto.html) === */
 
-  .contact-wrap { max-width: 900px; margin: 0 auto; padding: 56px 24px 80px; }
+  .contact-wrap { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); padding-top: 56px; padding-bottom: 80px; }
   .contact-head { text-align: left; max-width: 620px; }
   .contact-head h1 { font-family:'Manrope',sans-serif; font-weight:800; font-size: clamp(28px,4vw,40px); line-height:1.15; }
   .contact-head .accent-text { color: var(--accent); }
