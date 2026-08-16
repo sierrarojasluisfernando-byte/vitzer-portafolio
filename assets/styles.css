@@ -59,18 +59,6 @@
 
   .center { text-align: center; }
 
-  .section-bridge {
-    text-align: center;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: clamp(19px, 2.4vw, 25px);
-    line-height: 1.35;
-    color: var(--ink);
-    max-width: 30ch;
-    margin: 0 auto;
-    padding: 40px 24px 0;
-  }
-
   .eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
@@ -161,6 +149,7 @@
 
   /* ---------- Sections ---------- */
   section.block { padding-top: 60px; padding-bottom: 60px; border-top: 1px solid var(--line); }
+  section.block.tight-top { padding-top: 56px; }
   .section-head { text-align: center; max-width: var(--measure-narrow); margin: 0 auto; }
   .section-head h2 { font-size: clamp(26px, 3.2vw, 36px); margin-top: 12px; line-height: 1.16; }
   .section-head p.lede { margin: 16px 0 0; color: var(--ink-soft); font-size: 16.5px; }
@@ -272,8 +261,6 @@
   }
   .price-card .annual-mini strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
   .price-card .annual-mini .save { color: var(--accent-deep); }
-  :root[data-theme="dark"] .price-card .annual-mini .save,
-  :root:not([data-theme="light"]) .price-card .annual-mini .save { color: var(--accent); }
 
   .price-explain { max-width: 620px; margin: 26px auto 0; text-align: center; font-size: 15px; color: var(--ink-soft); }
   .annual-note {
@@ -281,8 +268,6 @@
     border-radius: 10px; font-size: 14px; color: var(--ink); text-align: center;
   }
   .annual-note strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--accent-deep); }
-  :root[data-theme="dark"] .annual-note strong,
-  :root:not([data-theme="light"]) .annual-note strong { color: var(--accent); }
 
   /* ---------- FAQ ---------- */
   .faq { display: flex; flex-direction: column; text-align: left; }
@@ -312,8 +297,7 @@
       margin: 0.55in 0.6in;
     }
 
-    section.block,
-    .section-bridge {
+    section.block {
       break-before: page;
       page-break-before: always;
     }
@@ -372,6 +356,7 @@
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
   }
   .tag-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--accent); display: inline-block; }
+  .tag-eyebrow.centered { justify-content: center; }
   .hero2 h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(31px,4.6vw,51px); line-height: 1.1; margin-top: 18px; }
   .hero2 h1 .accent-text { color: var(--accent); }
   .hero2 p.lede { max-width: 620px; margin: 20px auto 0; font-size: 17px; color: var(--ink-soft); }
@@ -415,6 +400,8 @@
     width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
+  .product-icon.green { background: rgba(52,211,153,0.12); }
+  .product-icon.accent { background: var(--accent-soft); }
   .product-card .body { flex: 1; }
   .product-card h3 { font-family:'Manrope',sans-serif; font-weight:700; font-size: 19px; margin: 0 0 6px; }
   .product-card p { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 14px; }
@@ -440,6 +427,7 @@
     padding:11px 12px; color: var(--ink); font-family:'Plus Jakarta Sans',sans-serif; font-size:14px;
   }
   .form-field textarea { resize: vertical; min-height: 90px; }
+  .form-field.message { margin-bottom: 18px; }
   .contact-card .btn { width: 100%; justify-content: center; margin-top: 6px; border: none; cursor: pointer; }
   .info-item { display:flex; gap:14px; margin-bottom:22px; }
   .info-item:last-child { margin-bottom:0; }
