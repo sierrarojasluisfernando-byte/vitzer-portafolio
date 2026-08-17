@@ -5,10 +5,10 @@
     --surface: #F7F7FA;
     --surface-raised: #FFFFFF;
     --ink: #0B0B12;
-    --ink-soft: #55586B;
-    --ink-faint: #8D90A0;
-    --line: #E7E7EF;
-    --line-strong: #D2D3E0;
+    --ink-soft: #454859;
+    --ink-faint: #6B6F80;
+    --line: #DADCE6;
+    --line-strong: #B4B7C6;
     --accent: #4169E1;
     --accent-ink: #FFFFFF;
     --accent-soft: #E9EEFC;
@@ -25,6 +25,12 @@
     --gutter: clamp(1rem, 3vw, 2.5rem);
     --prose: 68ch;
     --measure-narrow: 52ch;
+
+    --ink-surface: #0F1020;
+    --ink-surface-raised: #1A1B2E;
+    --on-ink: #F2F3F8;
+    --on-ink-soft: #A8ACC0;
+    --accent-on-ink: #7B9BFF;
   }
 
   * { box-sizing: border-box; }
@@ -58,6 +64,17 @@
   .wrap-wide { max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter); }
 
   .center { text-align: center; }
+
+  /* ---------- Dark band (full-bleed; nest .wrap/.wrap-wide inside for the shell width) ---------- */
+  .band-dark {
+    background: var(--ink-surface);
+    color: var(--on-ink);
+    border-top: 2px solid var(--magenta);
+    --line: rgba(255,255,255,0.12);
+    --line-strong: rgba(255,255,255,0.12);
+    --accent-deep: var(--accent-on-ink);
+  }
+  .band-dark p { color: var(--on-ink-soft); }
 
   .eyebrow {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -96,20 +113,26 @@
     max-width: 46ch;
   }
   .hero-meta {
-    margin: 34px auto 0;
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    flex-wrap: wrap;
+    max-width: 940px;
+    margin-top: 34px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    text-align: left;
   }
-  .hero-meta div { font-size: 13.5px; color: var(--ink-faint); text-align: center; }
-  .hero-meta strong {
-    display: block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ink);
+  @media (max-width: 640px) { .hero-meta { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    border-top: 3px solid var(--accent);
   }
+  .stat-card .stat-num { font-family: 'Manrope', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+  .stat-card .stat-title { margin-top: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .stat-card .stat-desc { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 
   /* ---------- Phone / chat mockup ---------- */
   .phone-outer { display: flex; justify-content: center; margin-top: 46px; }
@@ -202,7 +225,7 @@
   .checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; text-align: left; }
   .checklist li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid var(--line); align-items: start; }
   .checklist li:first-child { border-top: none; }
-  .checklist .box { width: 17px; height: 17px; margin-top: 3px; border: 1.5px solid var(--line-strong); border-radius: 5px; }
+  .checklist .box { width: 17px; height: 17px; margin-top: 3px; border: 1.5px solid var(--accent); border-radius: 5px; }
   .checklist strong { display: block; font-size: 15.5px; margin-bottom: 2px; }
   .checklist span { color: var(--ink-soft); font-size: 14.5px; }
 
@@ -248,19 +271,51 @@
     padding: 28px 26px; display: flex; flex-direction: column; text-align: left; min-width: 0;
     box-shadow: var(--shadow);
   }
-  .price-card .kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
-  .price-card .amount { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 26px; margin-top: 8px; font-variant-numeric: tabular-nums; color: var(--ink); }
-  .price-card .amount sup { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--ink-faint); }
+  .price-card .plan-name { font-family: 'Manrope', sans-serif; font-size: 25px; font-weight: 600; color: var(--ink); }
+  .price-card .plan-volume { margin-top: 4px; font-size: 15px; color: var(--ink-soft); }
+  .price-card .amount { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 44px; letter-spacing: -0.02em; margin-top: 8px; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .price-card .amount .cur { font-size: 24px; vertical-align: top; }
+  .price-card .amount sup { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--ink-faint); }
   .price-card .desc { margin-top: 6px; font-size: 14px; color: var(--ink-soft); }
   .price-card ul { margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .price-card li { font-size: 14.5px; color: var(--ink-soft); padding-left: 18px; position: relative; }
-  .price-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .price-card li { font-size: 14.5px; color: var(--ink-soft); padding-left: 32px; position: relative; }
+  .price-card li::before {
+    content: '✓'; position: absolute; left: 0; top: 1px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--good-soft); color: var(--good);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; line-height: 1;
+  }
   .price-card .annual-mini {
     margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
     font-size: 13.5px; line-height: 1.7; color: var(--ink-soft);
   }
   .price-card .annual-mini strong { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
   .price-card .annual-mini .save { color: var(--accent-deep); }
+
+  .price-card.featured {
+    background: radial-gradient(120% 100% at 50% 0%, #1E1B3A 0%, #0F1020 100%);
+    color: var(--on-ink);
+    --line: rgba(255,255,255,0.14);
+    --line-strong: rgba(255,255,255,0.14);
+    --accent-deep: var(--accent-on-ink);
+  }
+  .price-card.featured .plan-name,
+  .price-card.featured .amount,
+  .price-card.featured .amount sup { color: var(--on-ink); }
+  .price-card.featured .plan-volume,
+  .price-card.featured .desc,
+  .price-card.featured li,
+  .price-card.featured .annual-mini { color: var(--on-ink-soft); }
+  .price-card.featured .annual-mini strong { color: var(--on-ink); }
+  .price-card.featured li::before { background: rgba(255,255,255,0.1); }
+
+  .price-badge {
+    align-self: flex-start;
+    background: var(--accent); color: var(--accent-ink);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 999px; padding: 6px 12px; margin-bottom: 14px; white-space: nowrap;
+  }
 
   .price-explain { max-width: 620px; margin: 26px auto 0; text-align: center; font-size: 15px; color: var(--ink-soft); }
   .annual-note {
@@ -351,11 +406,11 @@
   }
   .hero2 { text-align: center; padding: 64px 0 0; }
   .tag-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center;
     font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 12.5px;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--magenta);
   }
-  .tag-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--accent); display: inline-block; }
   .tag-eyebrow.centered { justify-content: center; }
   .hero2 h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(31px,4.6vw,51px); line-height: 1.1; margin-top: 18px; }
   .hero2 h1 .accent-text { color: var(--accent); }
@@ -432,8 +487,8 @@
   .info-item { display:flex; gap:14px; margin-bottom:22px; }
   .info-item:last-child { margin-bottom:0; }
   .info-icon {
-    width:38px; height:38px; border-radius:10px; background: var(--accent-soft);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; color: var(--accent);
+    width:38px; height:38px; border-radius:10px; background: var(--accent);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color: var(--accent-ink);
   }
   .info-item h4 { font-size:14px; margin:0 0 3px; }
   .info-item p { font-size:13.5px; color: var(--ink-soft); margin:0; }
