@@ -412,7 +412,7 @@
     color: var(--magenta);
   }
   .tag-eyebrow.centered { justify-content: center; }
-  .tag-eyebrow.ink { color: #000; }
+  .tag-eyebrow.ink { color: var(--ink-soft); }
   .hero2 h1 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(31px,4.6vw,51px); line-height: 1.1; margin-top: 18px; }
   .hero2 h1 .accent-text { color: var(--accent); }
   .hero2 p.lede { max-width: 620px; margin: 20px auto 0; font-size: 17px; color: var(--ink-soft); }
