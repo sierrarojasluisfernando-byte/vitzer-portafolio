@@ -31,6 +31,12 @@
     --on-ink: #F2F3F8;
     --on-ink-soft: #A8ACC0;
     --accent-on-ink: #7B9BFF;
+
+    /* Escala de z-index: header < menu-overlay < wa-float, para que el
+       boton de WhatsApp siga siempre alcanzable por encima del menu. */
+    --z-header: 60;
+    --z-mobile-menu: 65;
+    --z-wa-float: 70;
   }
 
   * { box-sizing: border-box; }
@@ -378,7 +384,7 @@
   }
 
   .topnav {
-    position: sticky; top: 0; z-index: 60;
+    position: sticky; top: 0; z-index: var(--z-header);
     background: rgba(255,255,255,0.82); backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
@@ -397,8 +403,6 @@
   @media (max-width: 560px) { .topnav-links { gap: 14px; } .topnav-links a { font-size: 12.5px; } }
 
   /* ---------- Mobile nav toggle (hamburger) ---------- */
-  .topnav-menu { display: contents; }
-
   .topnav-toggle {
     display: none;
     align-items: center;
@@ -448,39 +452,68 @@
     .topnav-toggle-bar::after { transition: none; }
   }
 
-  body.nav-open { overflow: hidden; }
+  /* Bloqueo de scroll con position:fixed en <body> (mas robusto que solo
+     overflow:hidden en iOS) — nav.js guarda/restaura el scrollY exacto. */
+  body.nav-open { position: fixed; left: 0; right: 0; overflow: hidden; }
+
+  /*
+   * .mobile-menu es hermano de <nav class="topnav">, NUNCA descendiente.
+   * .topnav tiene backdrop-filter, y filter/backdrop-filter/transform en un
+   * ancestro crean un "containing block" nuevo para descendientes
+   * position:fixed (igual que lo haria una traba de stacking context).
+   * Si el panel viviera dentro de .topnav, su fixed se resolveria contra la
+   * caja del header (~60px) en vez del viewport y se recortaria (bug real
+   * que reportó el usuario: menu colapsado, primer link cortado a medias).
+   * Sacarlo del DOM del header es el equivalente, en HTML estatico, a un
+   * createPortal(panel, document.body): lo desacopla de cualquier stacking
+   * context / containing block ajeno.
+   */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-mobile-menu);
+  }
 
   @media (max-width: 767px) {
     .topnav-inner { height: 60px; padding-block: 0; padding-inline: 16px; }
     .topnav-toggle { display: inline-flex; }
+    .topnav-inner .topnav-links, .topnav-inner .topnav-cta { display: none; }
 
-    .topnav-menu {
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    .mobile-menu.is-open { display: flex; flex-direction: column; }
+
+    .mobile-menu-backdrop {
+      position: absolute;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(11,11,18,0.44);
+      backdrop-filter: blur(2px);
+    }
+    .mobile-menu-panel {
+      position: relative;
+      margin-top: 60px;
+      display: flex;
       flex-direction: column;
       background: var(--ground);
       padding: 8px 16px 24px;
       overflow-y: auto;
-      z-index: 65;
+      max-height: calc(100% - 60px);
+      box-shadow: var(--shadow);
     }
-    .topnav-menu.is-open { display: flex; }
     @media (prefers-reduced-motion: no-preference) {
-      .topnav-menu.is-open { animation: topnav-menu-in 0.22s ease; }
+      .mobile-menu-panel { animation: mobile-menu-in 0.22s ease; }
     }
 
-    .topnav-menu .topnav-links { flex-direction: column; gap: 0; }
-    .topnav-menu .topnav-links a {
+    .mobile-menu-links { display: flex; flex-direction: column; }
+    .mobile-menu-links a {
       display: flex;
       align-items: center;
       min-height: 44px;
-      font-size: 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px;
+      color: var(--ink-soft); text-decoration: none;
       border-bottom: 1px solid var(--line);
     }
-    .topnav-menu .topnav-cta {
+    .mobile-menu-links a:hover, .mobile-menu-links a.active { color: var(--accent); }
+    .mobile-menu-cta {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -491,7 +524,7 @@
     }
   }
 
-  @keyframes topnav-menu-in {
+  @keyframes mobile-menu-in {
     from { opacity: 0; transform: translateY(-6px); }
     to { opacity: 1; transform: translateY(0); }
   }
@@ -533,7 +566,7 @@
   @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .tech-ticker { animation: none; } }
   .wa-float {
-    position: fixed; bottom: 24px; right: 24px; z-index: 70;
+    position: fixed; bottom: 24px; right: 24px; z-index: var(--z-wa-float);
     width: 56px; height: 56px; border-radius: 50%;
     background: #25D366; display: flex; align-items: center; justify-content: center;
     box-shadow: var(--shadow); text-decoration: none;
