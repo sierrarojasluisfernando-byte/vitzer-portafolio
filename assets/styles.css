@@ -388,6 +388,16 @@
     background: rgba(255,255,255,0.82); backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
+  /* Hide-on-scroll-down / show-on-scroll-up, solo <1024px — nav.js
+     controla .is-hidden con rAF. Desktop (>=1024px) no se toca: la regla
+     ni siquiera existe fuera de este media query. */
+  @media (max-width: 1023.98px) {
+    .topnav {
+      transition: transform 0.2s ease;
+      will-change: transform;
+    }
+    .topnav.is-hidden { transform: translateY(-100%); }
+  }
   .topnav-inner {
     max-width: var(--shell); margin: 0 auto; padding-inline: var(--gutter);
     padding-top: 12px; padding-bottom: 12px;

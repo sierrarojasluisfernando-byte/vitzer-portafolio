@@ -68,3 +68,68 @@
     });
   }
 })();
+
+/* Header sticky "hide on scroll down / show on scroll up", solo <1024px.
+   rAF-throttled: onScroll solo agenda un frame, update() hace el trabajo
+   real una vez por frame como maximo (nunca corre en cada evento scroll). */
+(function () {
+  var header = document.querySelector('.topnav');
+  var menu = document.getElementById('mobile-menu');
+  if (!header) return;
+
+  var mobileQuery = window.matchMedia('(max-width: 1023.98px)');
+  var lastY = window.scrollY || window.pageYOffset || 0;
+  var upDistance = 0;
+  var ticking = false;
+
+  function isMenuOpen() {
+    return !!(menu && menu.classList.contains('is-open'));
+  }
+
+  function update() {
+    ticking = false;
+    var currentY = window.scrollY || window.pageYOffset || 0;
+
+    if (!mobileQuery.matches || isMenuOpen()) {
+      header.classList.remove('is-hidden');
+      lastY = currentY;
+      upDistance = 0;
+      return;
+    }
+
+    var delta = currentY - lastY;
+    var headerHeight = header.offsetHeight;
+
+    if (currentY <= headerHeight) {
+      header.classList.remove('is-hidden');
+      upDistance = 0;
+    } else if (delta > 0) {
+      upDistance = 0;
+      header.classList.add('is-hidden');
+    } else if (delta < 0) {
+      upDistance += -delta;
+      if (upDistance >= 10) {
+        header.classList.remove('is-hidden');
+      }
+    }
+
+    lastY = currentY;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (typeof mobileQuery.addEventListener === 'function') {
+    mobileQuery.addEventListener('change', function () {
+      header.classList.remove('is-hidden');
+      lastY = window.scrollY || window.pageYOffset || 0;
+      upDistance = 0;
+    });
+  }
+})();
