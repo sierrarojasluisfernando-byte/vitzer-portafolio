@@ -467,11 +467,17 @@
    * Sacarlo del DOM del header es el equivalente, en HTML estatico, a un
    * createPortal(panel, document.body): lo desacopla de cualquier stacking
    * context / containing block ajeno.
+   *
+   * El contenedor arranca en top:60px (no inset:0) a proposito: si cubriera
+   * toda la pantalla, aunque el backdrop/panel internos se dibujaran mas
+   * abajo, la caja de .mobile-menu seguiria interceptando los clics sobre
+   * la franja del header (z-index 65 > 60 de .topnav) y el boton de la "X"
+   * quedaria inalcanzable aunque se viera encima.
    */
   .mobile-menu {
     display: none;
     position: fixed;
-    inset: 0;
+    top: 60px; left: 0; right: 0; bottom: 0;
     z-index: var(--z-mobile-menu);
   }
 
@@ -484,19 +490,18 @@
 
     .mobile-menu-backdrop {
       position: absolute;
-      top: 60px; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: rgba(11,11,18,0.44);
       backdrop-filter: blur(2px);
     }
     .mobile-menu-panel {
       position: relative;
-      margin-top: 60px;
       display: flex;
       flex-direction: column;
       background: var(--ground);
       padding: 8px 16px 24px;
       overflow-y: auto;
-      max-height: calc(100% - 60px);
+      max-height: 100%;
       box-shadow: var(--shadow);
     }
     @media (prefers-reduced-motion: no-preference) {
