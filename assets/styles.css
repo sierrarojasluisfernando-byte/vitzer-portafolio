@@ -668,3 +668,18 @@
     -webkit-box-decoration-break: clone; box-decoration-break: clone;
   }
   .roi-card.win .num { display: inline-block; }
+
+  /* Botones que llevan a enlaces: fondo con el degradado de marca. */
+  .btn,
+  .topnav-cta {
+    background: linear-gradient(90deg, var(--accent), var(--magenta));
+  }
+
+  /* Menú de navegación: la página activa y el enlace bajo el cursor usan el
+     degradado en vez del azul liso. */
+  .topnav-links a:hover, .topnav-links a.active,
+  .mobile-menu-links a:hover, .mobile-menu-links a.active {
+    background: linear-gradient(90deg, var(--accent), var(--magenta));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
