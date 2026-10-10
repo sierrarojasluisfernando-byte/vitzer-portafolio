@@ -650,3 +650,21 @@
   .info-item h4 { font-size:14px; margin:0 0 3px; }
   .info-item p { font-size:13.5px; color: var(--ink-soft); margin:0; }
 
+
+  /* ---------- Degradado de marca en texto (azul → violeta) ----------
+   * Mismo degradado del logotipo. Se aplica al texto que antes iba en azul
+   * liso dentro de títulos y rótulos; el `color` de cada regla queda de
+   * respaldo. `clone` repite el degradado en cada renglón cuando el texto
+   * salta de línea. Enlaces, botones y viñetas siguen en azul liso. */
+  .hero .accent-text,
+  .hero2 h1 .accent-text,
+  .contact-head .accent-text,
+  .eyebrow,
+  .steps li::before,
+  .roi-card.win .num {
+    background: linear-gradient(90deg, var(--accent), var(--magenta));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+  .roi-card.win .num { display: inline-block; }
