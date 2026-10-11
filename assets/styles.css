@@ -683,3 +683,18 @@
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  /* ---------- Vitzer Talk (vitzer-talk.html) ---------- */
+  .product-icon.violet { background: var(--magenta-soft); }
+  .hero > .cta-row { margin-bottom: 8px; }
+  /* Las dos formas de obtener el producto, lado a lado. */
+  .access-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  @media (max-width: 720px) { .access-grid { grid-template-columns: 1fr; } }
+  .access-card {
+    background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px;
+    padding: 26px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+    box-shadow: var(--shadow);
+  }
+  .access-card h4 { margin: 0; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 18px; }
+  .access-card p { margin: 0 0 6px; color: var(--ink-soft); font-size: 15.5px; }
+  .access-note { margin: 18px 0 0; text-align: center; font-size: 13.5px; color: var(--ink-faint); }
