@@ -8,3 +8,4 @@
 - `.tech-ticker-wrap` es full-bleed intencional: no envolverlo en ningún contenedor con `max-width`. Si se agregan ítems al ticker, duplicarlos exactamente al 50% o se rompe la animación (`translateX(-50%)`).
 - `.phone` tiene 380px fijos por diseño, no es un contenedor de layout.
 - Los 4 HTML llevan `<meta charset="utf-8">` como primer elemento.
+- Animaciones de entrada en `assets/motion.js`: marca bloques con `.reveal` y pone `html.motion`; el CSS solo oculta bajo esa clase, así que sin JS o con "reducir movimiento" la página se ve completa. Al agregar un tipo de bloque nuevo, sumarlo a la lista de selectores de ese archivo.
