@@ -412,7 +412,9 @@
     background: linear-gradient(90deg, var(--accent), var(--magenta));
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-flex; align-items: center; gap: 9px;
   }
+  .topnav-brand img { display: block; width: 24px; height: 24px; }
   .topnav-links { display: flex; gap: 26px; }
   .topnav-links a {
     font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px;
