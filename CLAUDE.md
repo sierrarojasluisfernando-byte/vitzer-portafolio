@@ -9,3 +9,5 @@
 - `.phone` tiene 380px fijos por diseño, no es un contenedor de layout.
 - Los 4 HTML llevan `<meta charset="utf-8">` como primer elemento.
 - Animaciones de entrada en `assets/motion.js`: marca bloques con `.reveal` y pone `html.motion`; el CSS solo oculta bajo esa clase, así que sin JS o con "reducir movimiento" la página se ve completa. Al agregar un tipo de bloque nuevo, sumarlo a la lista de selectores de ese archivo.
+- Encabezados editoriales (a la izquierda, con regla vertical en degradado): solo en secciones con la clase `.editorial` (hoy, la página de Vitzer Talk). El resto del sitio usa los encabezados centrados.
+- Productos usa filas alternadas (`.product-row`, `.reverse`) con imagen real del producto; las capturas viven en `assets/img/`.

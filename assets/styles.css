@@ -611,12 +611,6 @@
     background: var(--surface-raised); border: 1px solid var(--line); border-radius: 16px; padding: 26px;
   }
   @media (max-width: 600px) { .product-card { flex-direction: column; text-align: center; } }
-  .product-icon {
-    width: 64px; height: 64px; border-radius: 14px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .product-icon.green { background: rgba(52,211,153,0.12); }
-  .product-icon.accent { background: var(--accent-soft); }
   .product-card .body { flex: 1; }
   .product-card h3 { font-family:'Manrope',sans-serif; font-weight:700; font-size: 19px; margin: 0 0 6px; }
   .product-card p { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 14px; }
@@ -688,7 +682,6 @@
   }
 
   /* ---------- Vitzer Talk (vitzer-talk.html) ---------- */
-  .product-icon.violet { background: var(--magenta-soft); }
   .hero > .cta-row { margin-bottom: 8px; }
   /* Las dos formas de obtener el producto, lado a lado. */
   .access-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
@@ -740,4 +733,104 @@
       box-shadow: 0 10px 28px -10px rgba(139,92,246,0.7);
     }
     .btn-outline:hover { transform: translateY(-1px); }
+  }
+
+/* === DIAGRAMACION EDITORIAL (propuesta) === */
+
+  /* Encabezados editoriales (solo donde la sección lleva .editorial): a la
+     izquierda, con una regla vertical y un tramo en degradado al inicio. */
+  .editorial .section-head {
+    position: relative; text-align: left; max-width: none; margin: 0;
+    padding-left: 24px; border-left: 1px solid var(--line-strong);
+  }
+  .editorial .section-head::before {
+    content: ""; position: absolute; left: -2px; top: 0; width: 3px; height: 58px;
+    border-radius: 2px; background: linear-gradient(180deg, var(--accent), var(--magenta));
+  }
+  .editorial .section-head .eyebrow::before { display: none; }
+  .editorial .section-head h2 { max-width: 22ch; }
+  .editorial .section-head p.lede { max-width: var(--prose); }
+  .editorial .section-content { margin: 40px 0 0; }
+
+  /* Productos en filas alternadas: texto e imagen real del producto. */
+  .product-rows { margin-top: 64px; display: flex; flex-direction: column; gap: 104px; }
+  .product-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+  .product-row.reverse .product-copy { order: 2; }
+  .product-copy h2 { font-size: clamp(26px, 3vw, 34px); margin: 14px 0 0; line-height: 1.15; }
+  .product-copy p { color: var(--ink-soft); margin: 14px 0 26px; max-width: 46ch; }
+  .product-logo { margin-top: 16px; }
+  .product-logo img { display: block; height: 44px; width: auto; }
+  .product-media {
+    border-radius: 20px; background: var(--surface); border: 1px solid var(--line);
+    padding: 32px; min-height: 360px; display: flex; align-items: center; justify-content: center;
+  }
+  .product-media .phone { width: 100%; max-width: 360px; }
+  @media (max-width: 860px) {
+    .product-rows { gap: 64px; }
+    .product-row { grid-template-columns: 1fr; gap: 28px; }
+    .product-row.reverse .product-copy { order: 0; }
+    .product-media { padding: 18px; min-height: 0; }
+  }
+
+  .browser { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--line-strong); box-shadow: var(--shadow); background: #080C14; }
+  .browser-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #11131F; border-bottom: 1px solid var(--line); font-size: 11.5px; color: var(--ink-faint); }
+  .browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: #2A2D3F; }
+  .browser-bar span { margin-left: 10px; }
+  .browser img { display: block; width: 100%; height: auto; }
+
+  /* La cajita de Vitzer Talk mientras dicta. */
+  .vt-stage { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .vt-keys { display: flex; align-items: center; gap: 8px; color: var(--ink-faint); font-size: 13px; }
+  .vt-keys kbd {
+    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink);
+    background: var(--surface-raised); border: 1px solid var(--line-strong); border-bottom-width: 3px;
+    border-radius: 8px; padding: 6px 11px;
+  }
+  .vt-card {
+    width: 300px; max-width: 100%; border-radius: 18px; background: #0F1020; border: 1px solid var(--line);
+    box-shadow: 0 24px 60px -24px rgba(111,141,255,0.45); padding: 12px;
+  }
+  .vt-head { display: grid; grid-template-columns: 24px 1fr 24px; align-items: center; }
+  .vt-brand { display: flex; align-items: center; justify-content: center; gap: 7px; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 16px; color: var(--ink); }
+  .vt-brand img { display: block; width: 18px; height: 18px; }
+  .vt-brand b { font-weight: 500; color: var(--ink-faint); margin-left: -3px; }
+  .vt-x { font-style: normal; text-align: center; color: var(--ink-faint); }
+  .vt-dots { height: 40px; margin: 8px 0; display: flex; align-items: center; justify-content: center; gap: 3.5px; }
+  .vt-dots i {
+    width: 3.5px; border-radius: 2px; background: linear-gradient(180deg, var(--accent), var(--magenta));
+    animation: vt-wave 1.3s ease-in-out infinite; transform-origin: center;
+  }
+  .vt-dots i.h1 { height: 4px; } .vt-dots i.h2 { height: 8px; } .vt-dots i.h3 { height: 13px; }
+  .vt-dots i.h4 { height: 19px; } .vt-dots i.h5 { height: 25px; } .vt-dots i.h6 { height: 32px; }
+  .vt-dots i:nth-child(3n) { animation-delay: -0.4s; }
+  .vt-dots i:nth-child(3n+1) { animation-delay: -0.85s; }
+  .vt-dots i:nth-child(4n) { animation-duration: 1s; }
+  @keyframes vt-wave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.45); } }
+  .vt-foot { text-align: center; font-size: 11.5px; line-height: 1.3; color: var(--ink-faint); }
+  .vt-foot b { display: block; font-weight: 600; color: var(--ink-soft); }
+
+  /* Página de Vitzer Talk: ícono de la app en el encabezado y la cajita al lado de los pasos. */
+  .hero .app-icon { display: block; width: 76px; height: 76px; margin: 0 auto 22px; border-radius: 19px; box-shadow: 0 18px 40px -16px rgba(139,92,246,0.6); }
+  .block.split { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+  .split-media { display: flex; justify-content: center; padding: 36px 24px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); }
+  @media (max-width: 860px) { .block.split { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* Pie de página en columnas. */
+  .site-footer { border-top: 1px solid var(--line); padding: 56px 0 30px; margin-top: 24px; text-align: left; font-size: 14px; color: var(--ink-soft); }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px; }
+  .footer-brand {
+    display: inline-flex; align-items: center; gap: 9px; text-decoration: none;
+    font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20px;
+    background: linear-gradient(90deg, var(--accent), var(--magenta));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .footer-brand img { display: block; width: 22px; height: 22px; }
+  .footer-about p { margin: 14px 0 0; max-width: 32ch; color: var(--ink-faint); }
+  .footer-grid h5 { margin: 4px 0 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+  .footer-grid a.flink { display: block; margin: 0 0 10px; color: var(--ink-soft); text-decoration: none; }
+  .footer-grid a.flink:hover { color: var(--ink); }
+  .footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-faint); }
+  @media (max-width: 760px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-about { grid-column: 1 / -1; }
   }

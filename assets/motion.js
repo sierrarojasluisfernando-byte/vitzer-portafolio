@@ -10,7 +10,7 @@
   var selector = [
     '.hero2 > *', '.hero > *', '.products-head > *', '.contact-head > *', '.closing > *',
     '.section-head > *',
-    '.feat-grid > *', '.product-list > *', '.access-grid > *', '.contact-grid > *',
+    '.feat-grid > *', '.product-list > *', '.product-row > *', '.split-media', '.access-grid > *', '.contact-grid > *',
     '.stat-card', '.price-card', '.faq-item', '.steps > *', '.box',
     '.home-cta > .btn', '.cta-row', '.access-note', '.price-explain'
   ].join(',');
