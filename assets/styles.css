@@ -54,6 +54,8 @@
   }
 
   * { box-sizing: border-box; }
+  /* Lo marcado con hidden (galería y redes, por ahora) no se muestra aunque su clase defina display. */
+  [hidden] { display: none !important; }
   html { background: var(--ground); }
 
   body {

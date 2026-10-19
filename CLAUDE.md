@@ -16,3 +16,4 @@
 - Inicio: `.tech-ticker-wrap` va dentro del encabezado, al ancho del contenido, entre los botones y `.hero-meta`; si se agregan textos, duplicar la lista exacta al 50% o se rompe la animación (`translateX(-50%)`).
 - Galería del inicio (`assets/galeria.js`): hoy tiene espacios de muestra (`.gallery-ph`). Para poner una foto real, cambiar el `.gallery-ph` de cada `.gallery-slide` por un `<img>` (y opcionalmente un `<figcaption>`), con las fotos en `assets/img/`.
 - Redes sociales (Instagram, YouTube, LinkedIn): en la sección Síguenos del inicio y en `.footer-social` de las seis páginas, con `href="#"` hasta que existan las cuentas. Cambiar los enlaces en los siete lugares a la vez.
+- Hoy la galería, la sección Síguenos (inicio) y `.footer-social` (seis páginas) llevan el atributo `hidden` porque aún no hay fotos ni cuentas. Para mostrarlas: quitar `hidden` y renumerar los rótulos del inicio (el cierre pasa de 03 a 05).
