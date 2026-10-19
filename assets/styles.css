@@ -349,16 +349,24 @@
   .roi-note strong { color: var(--hielo); }
 
   /* ---------- Precios ---------- */
-  .price-lead { max-width: var(--prose); margin: 0 0 32px; font-size: 15.5px; color: var(--ink-soft); }
+  .price-lead { max-width: var(--prose); margin: 0 auto 56px; font-size: 15.5px; color: var(--ink-soft); }
   .price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; max-width: 440px; } }
   .price-card {
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 28px 26px; display: flex; flex-direction: column; min-width: 0;
+    padding: 28px 26px; display: flex; flex-direction: column; min-width: 0; position: relative;
   }
+  /* Los planes de los extremos van en grafito y el recomendado en acero
+     profundo, con todo su texto en perla (los grises se perderían en el azul). */
+  .price-card:not(.featured) { background: var(--grafito); }
   .price-card.featured {
-    border-color: var(--acero);
-    background: linear-gradient(160deg, rgba(191,217,230,0.08), rgba(12,14,16,0) 60%), var(--grafito);
+    background: var(--acero-profundo); border-color: transparent; color: var(--perla);
+    --ink: var(--perla);
+    --ink-soft: var(--perla);
+    --ink-faint: var(--perla);
+    --hielo: var(--perla);
+    --line: rgba(245,241,242,0.24);
+    --accent-wash: rgba(245,241,242,0.18);
   }
   .price-card .plan-name { font: 400 20px/1.3 var(--font-title); color: var(--ink); }
   .price-card .plan-volume { margin-top: 6px; font-size: 14.5px; color: var(--ink-soft); }
@@ -371,7 +379,7 @@
   .price-card li::before {
     content: '✓'; position: absolute; left: 0; top: 2px;
     width: 19px; height: 19px; border-radius: 50%;
-    background: var(--accent-wash); color: var(--hielo);
+    background: var(--pizarra); color: var(--perla);
     display: flex; align-items: center; justify-content: center;
     font-size: 11px; font-weight: 700; line-height: 1;
   }
@@ -379,13 +387,18 @@
   .price-card ul { margin-bottom: 18px; }
   .price-card .annual-mini strong { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
   .price-card .annual-mini .save { color: var(--hielo); }
+  /* La recomendación va encima de la tarjeta, fuera de ella, para que las tres
+     queden alineadas arriba. En una sola columna vuelve adentro. */
   .price-badge {
-    align-self: flex-start; background: var(--acero-profundo); color: var(--perla);
-    font: 500 11.5px var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
-    border-radius: 4px; padding: 5px 10px; margin-bottom: 16px; white-space: nowrap;
+    position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+    font: 500 12px var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--hielo); white-space: nowrap;
   }
-  .price-explain { max-width: var(--prose); margin: 26px 0 0; font-size: 15px; color: var(--ink-soft); }
-  .annual-note { max-width: var(--prose); margin: 22px 0 0; padding: 14px 18px; background: var(--accent-wash); border-radius: 8px; font-size: 14.5px; color: var(--ink); }
+  @media (max-width: 900px) {
+    .price-badge { position: static; transform: none; align-self: flex-start; margin-bottom: 14px; }
+  }
+  .price-explain { max-width: var(--prose); margin: 26px auto 0; font-size: 15px; color: var(--ink-soft); }
+  .annual-note { max-width: var(--prose); margin: 22px auto 0; padding: 14px 18px; background: var(--accent-wash); border-radius: 8px; font-size: 14.5px; color: var(--ink); }
   .annual-note strong { font-weight: 600; color: var(--hielo); }
 
   /* ---------- Preguntas frecuentes ---------- */
