@@ -507,9 +507,9 @@
   .vt-stage { display: flex; flex-direction: column; align-items: center; gap: 18px; }
   .vt-card { width: 300px; max-width: 100%; border-radius: 16px; background: var(--grafito); border: 1px solid var(--line-strong); padding: 12px; }
   .vt-head { display: grid; grid-template-columns: 24px 1fr 24px; align-items: center; }
-  .vt-brand { display: flex; align-items: center; justify-content: center; gap: 7px; font: 400 13px var(--font-title); color: var(--ink); }
-  .vt-brand img { display: block; width: 17px; height: 17px; }
-  .vt-brand b { font: 400 13px var(--font-text); color: var(--ink-faint); }
+  /* El nombre de la cajita es el logotipo dibujado de Vitzer Talk (no texto). */
+  .vt-brand { display: flex; align-items: center; justify-content: center; }
+  .vt-brand img { display: block; height: 24px; width: auto; }
   .vt-x { font-style: normal; text-align: center; color: var(--ink-faint); }
   .vt-dots { height: 40px; margin: 8px 0; display: flex; align-items: center; justify-content: center; gap: 3.5px; }
   .vt-dots i {
