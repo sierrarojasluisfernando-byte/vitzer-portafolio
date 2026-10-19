@@ -442,27 +442,66 @@
   .browser-bar span { margin-left: 10px; }
   .browser img { display: block; width: 100%; height: auto; }
 
-  /* Conversación de WhatsApp. `.phone` tiene 380px fijos por diseño. */
+  /* Conversación estilo WhatsApp (modo oscuro), con la letra del sistema como
+     WhatsApp. Las respuestas del asistente van en el verde salvia de Vitzer y el
+     fondo lleva un patrón propio (no el de WhatsApp). */
   .phone-outer { display: flex; margin-top: 64px; }
-  .phone {
-    width: 380px; max-width: 100%; background: var(--grafito);
-    border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; text-align: left;
+  .wa-figure { margin: 0; width: 380px; max-width: 100%; }
+  .wa-caption { margin-top: 12px; font-size: 13.5px; color: var(--ink-faint); }
+  .wa-chat {
+    --wa-panel: #202C33; --wa-bg: #0B141A; --wa-text: #E9EDEF; --wa-muted: #8696A0; --wa-icon: #AEBAC1;
+    --wa-out: #2B7356; --wa-tick: #53BDEB;
+    width: 380px; max-width: 100%; border-radius: 18px; overflow: hidden; text-align: left;
+    border: 1px solid var(--line-strong); background: var(--wa-bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--wa-text); -webkit-font-smoothing: antialiased;
   }
-  .product-media .phone { width: 100%; max-width: 340px; }
-  .phone-bar { padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); }
-  .phone-avatar {
-    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  .product-media .wa-chat { width: 100%; max-width: 360px; }
+  .wa-ico { display: flex; color: var(--wa-icon); flex-shrink: 0; }
+  .wa-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 8px; background: var(--wa-panel); }
+  .wa-head .wa-ico + .wa-ico { margin-left: 8px; }
+  .wa-avatar {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
     background: var(--acero-profundo); color: var(--perla);
-    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;
   }
-  .phone-bar-text .name { font-weight: 600; font-size: 13.5px; color: var(--ink); }
-  .phone-bar-text .status { font-size: 11.5px; color: var(--ink-faint); }
-  .phone-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-  .bubble { max-width: 82%; padding: 9px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.45; color: var(--ink); }
-  .bubble.them { align-self: flex-start; background: var(--bubble-them); border-bottom-left-radius: 4px; }
-  .bubble.me { align-self: flex-end; background: var(--bubble-me); border-bottom-right-radius: 4px; }
-  .bubble .time { display: block; text-align: right; font-size: 10px; color: rgba(245,241,242,0.55); margin-top: 3px; }
-  .phone-caption { padding: 12px 16px 15px; font-size: 13px; color: var(--ink-faint); border-top: 1px solid var(--line); }
+  .wa-title { flex: 1; min-width: 0; }
+  .wa-name { font-size: 15px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wa-status { font-size: 12.5px; color: var(--wa-muted); line-height: 1.3; }
+  .wa-body {
+    display: flex; flex-direction: column; gap: 4px; padding: 12px 16px 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27120%27 height=%27120%27 fill=%27none%27 stroke=%27%23E9EDEF%27 stroke-opacity=%27.055%27 stroke-width=%271.4%27%3E%3Crect x=%2712%27 y=%2714%27 width=%2711%27 height=%2711%27 rx=%273%27/%3E%3Crect x=%2726%27 y=%2714%27 width=%2711%27 height=%2711%27 rx=%273%27/%3E%3Ccircle cx=%2724.5%27 cy=%2735%27 r=%275.5%27/%3E%3Ccircle cx=%2786%27 cy=%2722%27 r=%274%27/%3E%3Cpath d=%27M70 52l8 8m0-8l-8 8%27/%3E%3Crect x=%2782%27 y=%2778%27 width=%2713%27 height=%2713%27 rx=%273.5%27 transform=%27rotate(12 88 84)%27/%3E%3Ccircle cx=%2730%27 cy=%2788%27 r=%277%27/%3E%3Cpath d=%27M48 100c4-5 9-5 13 0%27/%3E%3Cpath d=%27M100 44l4 7h-8z%27/%3E%3Ccircle cx=%2752%27 cy=%2756%27 r=%272%27/%3E%3C/svg%3E") 0 0 / 120px 120px, var(--wa-bg);
+  }
+  .wa-day {
+    align-self: center; margin-bottom: 8px; padding: 5px 12px; border-radius: 8px;
+    background: #182229; color: var(--wa-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .wa-msg {
+    position: relative; max-width: 82%; margin-top: 6px; padding: 6px 8px 7px 9px; border-radius: 8px;
+    font-size: 14.2px; line-height: 19px; box-shadow: 0 1px 0.5px rgba(11,20,26,0.3);
+  }
+  .wa-msg.them { align-self: flex-start; background: var(--wa-panel); border-top-left-radius: 0; }
+  .wa-msg.me { align-self: flex-end; background: var(--wa-out); border-top-right-radius: 0; }
+  /* La colita de cada burbuja. */
+  .wa-msg::before { content: ""; position: absolute; top: 0; width: 8px; height: 13px; }
+  .wa-msg.them::before { left: -8px; background: var(--wa-panel); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+  .wa-msg.me::before { right: -8px; background: var(--wa-out); clip-path: polygon(0 0, 100% 0, 0 100%); }
+  .wa-meta {
+    float: right; display: inline-flex; align-items: center; gap: 3px;
+    margin: 7px 0 -5px 10px; font-size: 11px; line-height: 15px; color: rgba(233,237,239,0.6); white-space: nowrap;
+  }
+  .wa-ticks { color: var(--wa-tick); }
+  .wa-foot { display: flex; align-items: center; gap: 6px; padding: 6px 8px 8px; background: var(--wa-bg); }
+  .wa-input {
+    flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 22px; background: var(--wa-panel);
+  }
+  .wa-placeholder { flex: 1; color: var(--wa-muted); font-size: 15px; }
+  .wa-mic {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; color: var(--perla);
+    background: linear-gradient(150deg, #5DB88A 0%, #2F8A62 100%);
+  }
 
   /* La cajita de Vitzer Talk mientras dicta. */
   .vt-stage { display: flex; flex-direction: column; align-items: center; gap: 18px; }
@@ -663,7 +702,7 @@
     .work-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
     .gallery-track { grid-auto-columns: 84%; gap: 14px; }
     .social-list { grid-template-columns: 1fr; gap: 12px; }
-    .product-row { grid-template-columns: 1fr; gap: 26px; padding-block: 40px; }
+    .product-row { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 40px; }
     .product-row.reverse .product-copy { order: 0; }
     /* En una columna, el enlace de cada producto va después de su imagen:
        el texto se "abre" dentro de la fila para poder reordenar sus piezas. */
