@@ -6,14 +6,15 @@
 <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="/assets/intro.js"></script>
 <link rel="stylesheet" href="/assets/styles.css">
 <script src="/assets/nav.js" defer></script>
 <script src="/assets/motion.js" defer></script>
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="/" class="topnav-brand"><img src="/assets/logo/vitzer-simbolo.svg" alt="" width="24" height="24">Vitzer</a>
+    <a href="/" class="topnav-brand"><svg class="logo assemble" viewBox="0 0 242.3 64" role="img" aria-label="Vitzer"><rect class="mod-a" x="8" y="8" width="20" height="20" rx="5" fill="#DDE4EA"/><rect class="mod-b" x="36" y="8" width="20" height="20" rx="5" fill="#DDE4EA"/><circle class="node" cx="32" cy="46" r="10" fill="#7B9DB6"/><g class="word"><path transform="translate(77.25 47.00) scale(0.4521)" d="M48.46 0L78.91-64.32L65-64.32L40.57-11.19L16.64-64.32L1.65-64.32L31.91 0M99.25 0L99.25-47.77L85.82-47.77L85.82 0M99.15-54.49L99.15-66.36L86.21-66.36L86.21-54.49M149.06 0L149.06-9.15L134.37-9.15C125.81-9.15 123.08-10.51 123.08-16.74L123.08-39.11L143.81-39.11L143.81-47.77L123.08-47.77L123.08-61.69L109.75-61.69L109.75-14.69C109.75-2.82 115.59 0 132.52 0M219.31 0L219.31-9.34L176.02-9.34L218.63-39.21L218.63-47.77L156.17-47.77L156.17-38.43L200.34-38.43L156.07-9.34L156.07 0M296.28 0L296.28-8.47L254.83-8.47C245.20-8.47 241.79-10.51 241.79-17.61L241.79-19.27L284.70-19.27C295.89-19.27 299.10-21.60 299.10-30.65L299.10-35.13C299.10-43.78 294.72-47.77 282.85-47.77L249.87-47.77C235.86-47.77 228.75-43.49 228.75-33.18L228.75-16.93C228.75-4.18 235.37 0 251.42 0M241.79-25.10L241.79-32.01C241.79-37.07 245.20-39.21 251.81-39.21L277.79-39.21C283.82-39.21 286.16-37.27 286.16-32.98L286.16-30.55C286.16-26.27 284.31-25.10 278.67-25.10M321.58 0L321.58-31.33C321.97-36 324.20-38.63 330.33-38.63L360.69-38.63L360.69-47.77L336.27-47.77C325.86-47.77 323.04-44.37 321.58-42.33L321.58-47.77L308.34-47.77L308.34 0" fill="#F5F1F2"/></g></svg></a>
     <button type="button" class="topnav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
       <span class="topnav-toggle-bar"></span>
     </button>
@@ -23,7 +24,7 @@
       <a href="/consultorias.html" class="">Consultorías</a>
       <a href="/contacto.html" class="active">Contacto</a>
     </div>
-    <a class="topnav-cta" href="/contacto.html">Hablemos ↗</a>
+    <a class="topnav-cta" href="/contacto.html">Hablemos</a>
   </div>
 </nav>
 
@@ -35,32 +36,35 @@
       <a href="/productos.html" class="">Productos</a>
       <a href="/consultorias.html" class="">Consultorías</a>
     </div>
-    <a class="topnav-cta mobile-menu-cta" href="/contacto.html">Hablemos ↗</a>
+    <a class="topnav-cta mobile-menu-cta" href="/contacto.html">Hablemos</a>
   </div>
 </div>
 
-<div class="contact-wrap">
-  <div class="contact-head">
-    <div class="tag-eyebrow">Contacto</div>
+<header class="mist page-hero">
+<div class="wrap hero">
+    <div class="eyebrow">Contacto</div>
     <h1>¿En qué podemos <span class="accent-text">ayudarte</span>?</h1>
     <p class="lede">Escríbenos por una consulta, soporte de nuestros productos, una sugerencia o un proyecto nuevo. Te respondemos por WhatsApp.</p>
-  </div>
+</div>
+</header>
+
+<div class="contact-wrap">
 
   <div class="contact-grid">
     <div class="contact-card">
       <h3>Envíanos un mensaje</h3>
       <form id="contactForm">
         <div class="form-row">
-          <div class="form-field"><label>Nombre completo *</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
-          <div class="form-field"><label>Email *</label><input type="email" name="email" placeholder="tu@email.com" required></div>
+          <div class="form-field"><label class="sr-only" for="f-nombre">Nombre</label><input id="f-nombre" type="text" name="nombre" placeholder="Nombre" autocomplete="name" required></div>
+          <div class="form-field"><label class="sr-only" for="f-email">Correo</label><input id="f-email" type="email" name="email" placeholder="Correo" autocomplete="email" required></div>
         </div>
         <div class="form-row">
-          <div class="form-field"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+57 300 000 0000"></div>
-          <div class="form-field"><label>Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa (opcional)"></div>
+          <div class="form-field"><label class="sr-only" for="f-telefono">Teléfono (opcional)</label><input id="f-telefono" type="tel" name="telefono" placeholder="Teléfono (opcional)" autocomplete="tel"></div>
+          <div class="form-field"><label class="sr-only" for="f-empresa">Empresa (opcional)</label><input id="f-empresa" type="text" name="empresa" placeholder="Empresa (opcional)" autocomplete="organization"></div>
         </div>
         <div class="form-field message">
-          <label>Tu mensaje</label>
-          <textarea name="mensaje" placeholder="Cuéntanos en qué te podemos ayudar..."></textarea>
+          <label class="sr-only" for="f-mensaje">¿En qué te podemos ayudar?</label>
+          <textarea id="f-mensaje" name="mensaje" placeholder="¿En qué te podemos ayudar?"></textarea>
         </div>
         <button type="submit" class="btn">Enviar por WhatsApp →</button>
       </form>
@@ -70,7 +74,7 @@
       <h3>Información de contacto</h3>
       <div class="info-item">
         <div class="info-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/><path d="M3 7l9 6 9-6"/></svg>
+          <svg width="19" height="19" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.8c1.7.9 3.6 1.4 5.6 1.4h.1c6.6 0 12-5.4 12-12S22.9 3 16.3 3H16zm0 21.8h-.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.1 1 1-4-.3-.4C5.8 18.1 5.3 16.6 5.3 15c0-5.9 4.8-10.7 10.7-10.7S26.7 9.1 26.7 15 21.9 24.8 16 24.8zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
         </div>
         <div><h4>WhatsApp</h4><p>+57 316 821 4747</p></div>
       </div>
@@ -87,8 +91,9 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-about">
-      <a class="footer-brand" href="/"><img src="/assets/logo/vitzer-simbolo.svg" alt="" width="22" height="22">Vitzer</a>
+      <a class="footer-brand" href="/"><img src="/assets/logo/vitzer-logo.svg" alt="Vitzer" width="98" height="26"></a>
       <p>Software y automatización con IA para negocios reales. Bogotá, Colombia.</p>
+      <div class="footer-social"><a href="#" aria-label="Instagram de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="YouTube de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="LinkedIn de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.7v.01M11.5 16v-5.5M11.5 13.1c0-1.6 1-2.6 2.3-2.6 1.4 0 2.2 1 2.2 2.6V16"/></svg></a></div>
     </div>
     <nav aria-label="Sitio">
       <h5>Sitio</h5>
@@ -109,7 +114,10 @@
       <a class="flink" href="/contacto.html">Escríbenos</a>
     </div>
   </div>
-  <div class="wrap footer-bottom"><span id="yr"></span> Vitzer. Todos los derechos reservados.<script>document.getElementById('yr').textContent = '© ' + new Date().getFullYear();</script></div>
+  <div class="wrap">
+    <div class="footer-bottom"><span><span id="yr"></span> Vitzer. Todos los derechos reservados.</span><span>Ingeniería aplicada</span></div>
+  </div>
+  <script>document.getElementById('yr').textContent = '© ' + new Date().getFullYear();</script>
 </footer>
 
 <a class="wa-float" href="https://wa.me/573168214747?text=Hola%2C%20vi%20el%20sitio%20de%20Vitzer%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">

@@ -8,11 +8,11 @@
   // Cada selector marca los bloques que entran; los hermanos de un mismo
   // contenedor entran en cascada.
   var selector = [
-    '.hero2 > *', '.hero > *', '.products-head > *', '.contact-head > *', '.closing > *',
+    '.hero > *', '.closing > *',
     '.section-head > *',
-    '.feat-grid > *', '.product-list > *', '.product-row > *', '.split-media', '.access-grid > *', '.contact-grid > *',
-    '.stat-card', '.price-card', '.faq-item', '.steps > *', '.box',
-    '.home-cta > .btn', '.cta-row', '.access-note', '.price-explain'
+    '.feat-grid > *', '.capa', '.work-steps > *', '.gallery', '.social-list > *', '.product-row > *', '.split-media', '.access-grid > *', '.contact-grid > *',
+    '.price-card', '.faq-item', '.steps > *', '.box',
+    '.cta-row', '.access-note', '.price-explain'
   ].join(',');
 
   var items = Array.prototype.slice.call(document.querySelectorAll(selector));

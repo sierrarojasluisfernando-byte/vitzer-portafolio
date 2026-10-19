@@ -6,16 +6,18 @@
 <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="/assets/intro.js"></script>
 <link rel="stylesheet" href="/assets/styles.css">
 <script src="/assets/nav.js" defer></script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/galeria.js" defer></script>
 
 
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="/" class="topnav-brand"><img src="/assets/logo/vitzer-simbolo.svg" alt="" width="24" height="24">Vitzer</a>
+    <a href="/" class="topnav-brand"><svg class="logo assemble" viewBox="0 0 242.3 64" role="img" aria-label="Vitzer"><rect class="mod-a" x="8" y="8" width="20" height="20" rx="5" fill="#DDE4EA"/><rect class="mod-b" x="36" y="8" width="20" height="20" rx="5" fill="#DDE4EA"/><circle class="node" cx="32" cy="46" r="10" fill="#7B9DB6"/><g class="word"><path transform="translate(77.25 47.00) scale(0.4521)" d="M48.46 0L78.91-64.32L65-64.32L40.57-11.19L16.64-64.32L1.65-64.32L31.91 0M99.25 0L99.25-47.77L85.82-47.77L85.82 0M99.15-54.49L99.15-66.36L86.21-66.36L86.21-54.49M149.06 0L149.06-9.15L134.37-9.15C125.81-9.15 123.08-10.51 123.08-16.74L123.08-39.11L143.81-39.11L143.81-47.77L123.08-47.77L123.08-61.69L109.75-61.69L109.75-14.69C109.75-2.82 115.59 0 132.52 0M219.31 0L219.31-9.34L176.02-9.34L218.63-39.21L218.63-47.77L156.17-47.77L156.17-38.43L200.34-38.43L156.07-9.34L156.07 0M296.28 0L296.28-8.47L254.83-8.47C245.20-8.47 241.79-10.51 241.79-17.61L241.79-19.27L284.70-19.27C295.89-19.27 299.10-21.60 299.10-30.65L299.10-35.13C299.10-43.78 294.72-47.77 282.85-47.77L249.87-47.77C235.86-47.77 228.75-43.49 228.75-33.18L228.75-16.93C228.75-4.18 235.37 0 251.42 0M241.79-25.10L241.79-32.01C241.79-37.07 245.20-39.21 251.81-39.21L277.79-39.21C283.82-39.21 286.16-37.27 286.16-32.98L286.16-30.55C286.16-26.27 284.31-25.10 278.67-25.10M321.58 0L321.58-31.33C321.97-36 324.20-38.63 330.33-38.63L360.69-38.63L360.69-47.77L336.27-47.77C325.86-47.77 323.04-44.37 321.58-42.33L321.58-47.77L308.34-47.77L308.34 0" fill="#F5F1F2"/></g></svg></a>
     <button type="button" class="topnav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
       <span class="topnav-toggle-bar"></span>
     </button>
@@ -25,7 +27,7 @@
       <a href="/consultorias.html" class="">Consultorías</a>
       <a href="/contacto.html" class="">Contacto</a>
     </div>
-    <a class="topnav-cta" href="/contacto.html">Hablemos ↗</a>
+    <a class="topnav-cta" href="/contacto.html">Hablemos</a>
   </div>
 </nav>
 
@@ -37,54 +39,114 @@
       <a href="/productos.html" class="">Productos</a>
       <a href="/consultorias.html" class="">Consultorías</a>
     </div>
-    <a class="topnav-cta mobile-menu-cta" href="/contacto.html">Hablemos ↗</a>
+    <a class="topnav-cta mobile-menu-cta" href="/contacto.html">Hablemos</a>
   </div>
 </div>
 
-<section class="wrap hero2">
-  <div class="tag-eyebrow ink">Estudio de desarrollo y automatización con IA</div>
-  <h1>Software y <span class="accent-text">automatización con IA</span> para tu negocio</h1>
-  <p class="lede">Construimos plataformas a la medida, automatizaciones y asistentes con inteligencia artificial — ingeniería aplicada a los procesos reales de cada negocio.</p>
-  <div class="hero2-actions">
+<header class="mist page-hero">
+<div class="wrap hero">
+  <div class="eyebrow">Estudio de software · Bogotá</div>
+  <h1>Ingeniería aplicada a <span class="accent-text">los procesos reales</span> de tu negocio</h1>
+  <p class="lede">Construimos plataformas a la medida, automatizaciones y asistentes con inteligencia artificial que hacen el trabajo que hoy nadie tiene tiempo de hacer a mano.</p>
+  <div class="cta-row">
     <a class="btn" href="https://wa.me/573168214747?text=Hola%2C%20vi%20el%20sitio%20de%20Vitzer%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
-    <a class="btn-outline" href="/productos.html">Nuestros productos</a>
+    <a class="btn-outline" href="/productos.html">Ver productos</a>
   </div>
-</section>
-
-<div class="tech-ticker-wrap">
-  <div class="tech-ticker"><span>WhatsApp Business API</span><span>Google Sheets</span><span>Google Calendar</span><span>MercadoPago</span><span>Gmail</span><span>Google Drive</span><span>Asistentes con IA</span><span>WhatsApp Business API</span><span>Google Sheets</span><span>Google Calendar</span><span>MercadoPago</span><span>Gmail</span><span>Google Drive</span><span>Asistentes con IA</span></div>
+  <div class="tech-ticker-wrap" aria-label="Lo que hacemos">
+    <div class="tech-ticker"><span>Asistentes con IA</span><span>Agendamiento con IA</span><span>Triage y seguimiento</span><span>Automatización del back office</span><span>Workflows</span><span>Páginas web</span><span>Plataformas web</span><span>Herramientas a la medida</span><span>Ciberseguridad</span><span aria-hidden="true">Asistentes con IA</span><span aria-hidden="true">Agendamiento con IA</span><span aria-hidden="true">Triage y seguimiento</span><span aria-hidden="true">Automatización del back office</span><span aria-hidden="true">Workflows</span><span aria-hidden="true">Páginas web</span><span aria-hidden="true">Plataformas web</span><span aria-hidden="true">Herramientas a la medida</span><span aria-hidden="true">Ciberseguridad</span></div>
+  </div>
+  <div class="hero-meta">
+    <div class="stat-card"><div class="stat-num">A la medida</div><p class="stat-desc">Software diseñado para el flujo real de cada negocio.</p></div>
+    <div class="stat-card"><div class="stat-num">Automatizado</div><p class="stat-desc">Tus herramientas conectadas, sin trabajo repetitivo.</p></div>
+    <div class="stat-card"><div class="stat-num">Con IA</div><p class="stat-desc">Asistentes que deciden dentro de reglas claras.</p></div>
+  </div>
 </div>
+</header>
 
-<section class="block wrap tight-top">
+<section class="block wrap">
   <div class="section-head">
-    <div class="eyebrow">Quiénes somos</div>
-    <h2>Vitzer construye software y sistemas de IA a la medida</h2>
-    <p class="lede">Somos un estudio de desarrollo enfocado en resolver problemas reales de negocio con tecnología — plataformas propias, automatización de procesos, y asistentes con inteligencia artificial que hacen el trabajo que hoy nadie tiene tiempo de hacer a mano.</p>
+    <div class="eyebrow">01 · Qué hacemos</div>
+    <h2>Así trabajamos</h2>
+    <p class="lede">Construimos la base, conectamos tus herramientas y sumamos inteligencia artificial donde de verdad ahorra trabajo.</p>
   </div>
-  <div class="section-content">
-    <div class="feat-grid">
-      <div><h4>Plataformas y software a la medida</h4><p>Aplicaciones web completas, diseñadas y construidas de principio a fin para el flujo real de cada negocio — no plantillas genéricas.</p></div>
-      <div><h4>Automatización de procesos</h4><p>Sistemas que conectan tus herramientas (agenda, pagos, mensajería, hojas de cálculo) para que la operación avance sola, sin trabajo manual repetitivo.</p></div>
-      <div><h4>Asistentes y agentes con IA</h4><p>Asistentes virtuales que entienden lenguaje natural, toman decisiones dentro de reglas claras, y saben cuándo pasarle el control a una persona.</p></div>
-      <div><h4>Capacidad en expansión constante</h4><p>La IA avanza rápido — seguimos incorporando nuevas capacidades a lo que ya construimos, en vez de dejarlo fijo el día del lanzamiento.</p></div>
+  <div class="section-content wide">
+    <div class="capas">
+      <div class="capa"><span class="eyebrow">Construimos</span><h3>Plataformas a la medida</h3><p>Aplicaciones web completas, construidas de principio a fin para tu operación, no plantillas genéricas.</p></div>
+      <div class="capa"><span class="eyebrow">Conectamos</span><h3>Procesos automatizados</h3><p>Agenda, pagos, mensajería y hojas de cálculo conectados para que la operación avance sola.</p></div>
+      <div class="capa"><span class="eyebrow">Pensamos</span><h3>Inteligencia aplicada</h3><p>Asistentes que entienden lenguaje natural, toman decisiones dentro de reglas claras y saben cuándo pasar el control a una persona.</p></div>
     </div>
   </div>
 </section>
 
-<section class="block wrap home-cta">
+<section class="block wrap">
   <div class="section-head">
-    <div class="eyebrow">Uno de nuestros productos recientes</div>
-    <h2>Asistente virtual para WhatsApp</h2>
-    <p class="lede">Responde, agenda y confirma citas por el WhatsApp de tu negocio — a cualquier hora, sin que tengas que estar pendiente del teléfono.</p>
+    <div class="eyebrow">02 · Proceso</div>
+    <h2>Cómo es trabajar con nosotros</h2>
+    <p class="lede">Sin sorpresas: en cada momento sabes qué sigue.</p>
   </div>
-  <a class="btn" href="/asistente-whatsapp.html">Conócelo →</a>
+  <div class="section-content wide">
+    <ol class="work-steps">
+      <li><span class="num">01</span><h3>Conversación</h3><p>Nos cuentas cómo funciona tu negocio hoy y qué te está quitando tiempo.</p></li>
+      <li><span class="num">02</span><h3>Propuesta</h3><p>Te mostramos qué construir, en qué orden, cuánto cuesta y en cuánto tiempo.</p></li>
+      <li><span class="num">03</span><h3>Construcción</h3><p>Avanzamos por etapas y revisas cada una antes de seguir.</p></li>
+      <li><span class="num">04</span><h3>Acompañamiento</h3><p>Después del lanzamiento seguimos contigo: ajustes, mejoras y soporte.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="section-head">
+    <div class="eyebrow">03 · Galería</div>
+    <h2>Lo que hacemos, en imágenes</h2>
+  </div>
+  <div class="section-content wide">
+    <div class="gallery" data-gallery>
+      <div class="gallery-track" tabindex="0" aria-label="Galería de imágenes">
+        <figure class="gallery-slide"><div class="gallery-ph"><span class="eyebrow">Imagen 1 · Foto de trabajo</span><p>Tú construyendo o revisando un proyecto</p></div></figure>
+        <figure class="gallery-slide"><div class="gallery-ph"><span class="eyebrow">Imagen 2 · Producto en uso</span><p>Academic Agent en un computador real</p></div></figure>
+        <figure class="gallery-slide"><div class="gallery-ph"><span class="eyebrow">Imagen 3 · Con un cliente</span><p>Una reunión o una entrega</p></div></figure>
+        <figure class="gallery-slide"><div class="gallery-ph"><span class="eyebrow">Imagen 4 · Producto en uso</span><p>El asistente de WhatsApp en un celular</p></div></figure>
+        <figure class="gallery-slide"><div class="gallery-ph"><span class="eyebrow">Imagen 5 · Dónde funciona</span><p>El consultorio o negocio que ya lo usa</p></div></figure>
+      </div>
+      <div class="gallery-nav">
+        <button type="button" class="gallery-btn" data-dir="-1" aria-label="Imagen anterior">←</button>
+        <button type="button" class="gallery-btn" data-dir="1" aria-label="Imagen siguiente">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="section-head">
+    <div class="eyebrow">04 · Síguenos</div>
+    <h2>Tutoriales, novedades y el día a día de Vitzer</h2>
+  </div>
+  <div class="section-content wide">
+    <ul class="social-list">
+      <li><a class="social-link" href="#" aria-label="Instagram de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram<small>Novedades y el día a día</small></span></a></li>
+      <li><a class="social-link" href="#" aria-label="YouTube de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg><span>YouTube<small>Tutoriales, como el de Academic Agent</small></span></a></li>
+      <li><a class="social-link" href="#" aria-label="LinkedIn de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.7v.01M11.5 16v-5.5M11.5 13.1c0-1.6 1-2.6 2.3-2.6 1.4 0 2.2 1 2.2 2.6V16"/></svg><span>LinkedIn<small>Vitzer para empresas</small></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="mist closing-band">
+<div class="wrap closing">
+  <div class="eyebrow">05 · Hablemos</div>
+  <h2>Cuéntanos cómo trabajas y te decimos por dónde empezar</h2>
+  <div class="cta-row">
+    <a class="btn" href="https://wa.me/573168214747?text=Hola%2C%20vi%20el%20sitio%20de%20Vitzer%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
+  </div>
+  <p class="closing-more"><a class="link" href="/productos.html">Conoce nuestros productos →</a></p>
+</div>
 </section>
 
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-about">
-      <a class="footer-brand" href="/"><img src="/assets/logo/vitzer-simbolo.svg" alt="" width="22" height="22">Vitzer</a>
+      <a class="footer-brand" href="/"><img src="/assets/logo/vitzer-logo.svg" alt="Vitzer" width="98" height="26"></a>
       <p>Software y automatización con IA para negocios reales. Bogotá, Colombia.</p>
+      <div class="footer-social"><a href="#" aria-label="Instagram de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="YouTube de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="LinkedIn de Vitzer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.7v.01M11.5 16v-5.5M11.5 13.1c0-1.6 1-2.6 2.3-2.6 1.4 0 2.2 1 2.2 2.6V16"/></svg></a></div>
     </div>
     <nav aria-label="Sitio">
       <h5>Sitio</h5>
@@ -105,7 +167,10 @@
       <a class="flink" href="/contacto.html">Escríbenos</a>
     </div>
   </div>
-  <div class="wrap footer-bottom"><span id="yr"></span> Vitzer. Todos los derechos reservados.<script>document.getElementById('yr').textContent = '© ' + new Date().getFullYear();</script></div>
+  <div class="wrap">
+    <div class="footer-bottom"><span><span id="yr"></span> Vitzer. Todos los derechos reservados.</span><span>Ingeniería aplicada</span></div>
+  </div>
+  <script>document.getElementById('yr').textContent = '© ' + new Date().getFullYear();</script>
 </footer>
 
 <a class="wa-float" href="https://wa.me/573168214747?text=Hola%2C%20vi%20el%20sitio%20de%20Vitzer%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">

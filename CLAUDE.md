@@ -2,12 +2,17 @@
 
 - Sitio estático de 6 páginas HTML (`index.html`, `productos.html`, `consultorias.html`, `contacto.html`, `asistente-whatsapp.html`, `vitzer-talk.html`). Sin build ni framework.
 - Todo el CSS vive en `assets/styles.css`. Nunca agregar `<style>` a los HTML ni estilos inline (`style="..."`) — siempre una clase en `styles.css`.
-- Sistema de anchos por tokens en `:root`: `--shell` (1360px), `--gutter`, `--prose`, `--measure-narrow`. Prohibido hardcodear `max-width` o `padding-inline` en cualquier selector nuevo: siempre usar las variables.
+- Sistema de anchos por tokens en `:root`: `--shell` (1200px), `--gutter`, `--prose`, `--measure-narrow`. Prohibido hardcodear `max-width` o `padding-inline` en cualquier selector nuevo: siempre usar las variables.
 - Contenedores de página (`.wrap`, `.wrap-wide`, `.topnav-inner`, `.products-wrap`, `.contact-wrap`) comparten `var(--shell)` — mismo eje vertical en todo el sitio, sin excepciones.
 - Texto corrido limitado a `var(--prose)`; encabezados de sección a `var(--measure-narrow)`. Nunca texto a ancho completo del shell.
-- `.tech-ticker-wrap` es full-bleed intencional: no envolverlo en ningún contenedor con `max-width`. Si se agregan ítems al ticker, duplicarlos exactamente al 50% o se rompe la animación (`translateX(-50%)`).
 - `.phone` tiene 380px fijos por diseño, no es un contenedor de layout.
 - Los 4 HTML llevan `<meta charset="utf-8">` como primer elemento.
 - Animaciones de entrada en `assets/motion.js`: marca bloques con `.reveal` y pone `html.motion`; el CSS solo oculta bajo esa clase, así que sin JS o con "reducir movimiento" la página se ve completa. Al agregar un tipo de bloque nuevo, sumarlo a la lista de selectores de ese archivo.
-- Encabezados editoriales (a la izquierda, con regla vertical en degradado): solo en secciones con la clase `.editorial` (hoy, la página de Vitzer Talk). El resto del sitio usa los encabezados centrados.
+- Identidad "Niebla de acero" (oscura): paleta en variables de `:root` (`--tinta`, `--niebla`, `--acero`, etc.) y roles (`--ink`, `--accent`...). Sin degradados azul-violeta. Títulos en Michroma (solo peso 400), texto en IBM Plex Sans, rótulos (`.eyebrow`) en IBM Plex Mono.
+- La palabra "Vitzer" del logo es un dibujo SVG (Vipnagorgialla convertida a trazos): su licencia gratuita no permite usarla como fuente web. Nunca cargar Vipnagorgialla como `@font-face`.
+- Encabezados de página a la izquierda dentro de `<header class="mist page-hero">` (franja con bruma que sube detrás del menú). Encabezados de sección: rótulo en la columna izquierda (`--label-col`) y título/texto a la derecha; `.section-content` se alinea con esa columna, salvo `.wide`. El cierre va en `<section class="mist closing-band">`.
+- El logo del menú es SVG en línea con clases para armarse al cargar; `assets/intro.js` (cargado sin `defer` en el `<head>`) pone `html.logo-intro` solo la primera vez por pestaña.
 - Productos usa filas alternadas (`.product-row`, `.reverse`) con imagen real del producto; las capturas viven en `assets/img/`.
+- Inicio: `.tech-ticker-wrap` va dentro del encabezado, al ancho del contenido, entre los botones y `.hero-meta`; si se agregan textos, duplicar la lista exacta al 50% o se rompe la animación (`translateX(-50%)`).
+- Galería del inicio (`assets/galeria.js`): hoy tiene espacios de muestra (`.gallery-ph`). Para poner una foto real, cambiar el `.gallery-ph` de cada `.gallery-slide` por un `<img>` (y opcionalmente un `<figcaption>`), con las fotos en `assets/img/`.
+- Redes sociales (Instagram, YouTube, LinkedIn): en la sección Síguenos del inicio y en `.footer-social` de las seis páginas, con `href="#"` hasta que existan las cuentas. Cambiar los enlaces en los siete lugares a la vez.
