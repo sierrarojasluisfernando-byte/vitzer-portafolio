@@ -66,15 +66,19 @@ export const ticker = {
 
 /* ---------- Visibilidad ---------- */
 
-/** cb(visible, entry) en cada entrada y salida del viewport. Devuelve la función para dejar de observar. */
-export function whenVisible(el, cb, threshold = 0) {
+/**
+ * cb(visible, entry) en cada entrada y salida del viewport. rootMargin permite
+ * avisar antes de que el elemento llegue (por ejemplo '100% 0px' = una pantalla antes).
+ * Devuelve la función para dejar de observar.
+ */
+export function whenVisible(el, cb, threshold = 0, rootMargin = '0px') {
   if (!('IntersectionObserver' in window)) {
     cb(true, null);
     return () => {};
   }
   const io = new IntersectionObserver(
     (entries) => entries.forEach((entry) => cb(entry.isIntersecting, entry)),
-    { threshold }
+    { threshold, rootMargin }
   );
   io.observe(el);
   return () => io.disconnect();

@@ -717,13 +717,15 @@
 
   /* ----- Coreografía con scroll (assets/js/pillars-scroll.js) -----
      Solo con la clase .is-scrolly, que el JS pone en pantallas anchas y sin
-     "reducir movimiento": la sección mide --pillar-run de alto y adentro la
-     escena queda fija (sticky) mientras el scroll la recorre. Sin la clase se
-     ve quieta y completa, sin las etiquetas flotantes ni el halo. */
+     "reducir movimiento": la escena (un alto de pantalla) queda fija (sticky)
+     durante el respiro (--pillar-breath px) y una pantalla más de scroll en la
+     que la secuencia se ve completa. Mientras está fija nunca queda quieta: el
+     JS la hace subir despacio con cada movimiento del scroll. Sin la clase se
+     ve quieta y completa, sin las cifras flotantes ni el halo. */
   .pillar-halo { display: none; }
-  .pillars-band { --pillar-run: 220vh; }
+  .pillars-band { --pillar-breath: 200px; }
   .is-scrolly .pillars { padding-bottom: 0; }
-  .is-scrolly .pillar-scroll { height: var(--pillar-run); }
+  .is-scrolly .pillar-scroll { height: calc(2 * (100vh - var(--nav-h)) + var(--pillar-breath)); }
   .is-scrolly .pillar-stage {
     position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h));
     display: flex; flex-direction: column; justify-content: center; overflow: clip;
