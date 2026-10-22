@@ -295,15 +295,6 @@
   .section-content { max-width: var(--prose); margin: 56px 0 0 calc(var(--label-col) + var(--col-gap)); }
   .section-content.wide { max-width: none; margin-left: 0; }
 
-  /* Qué hacemos (inicio): filas con rótulo, no tarjetas. */
-  .capas { border-top: 1px solid var(--line); }
-  .capa {
-    display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr) minmax(0, 1.2fr);
-    gap: var(--col-gap); padding-block: 30px; border-bottom: 1px solid var(--line); align-items: baseline;
-  }
-  .capa h3 { font-size: 17px; line-height: 1.4; }
-  .capa p { margin: 0; color: var(--ink-soft); }
-
   /* ---------- Lista de problemas ---------- */
   .pain-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
   .pain-list li { display: flex; align-items: flex-start; gap: 12px; color: var(--ink-soft); }
@@ -893,7 +884,6 @@
     .section-head > * { grid-column: 1; }
     .section-head > .eyebrow { grid-row: auto; padding-top: 0; margin-bottom: 14px; }
     .section-content { margin: 34px 0 0; }
-    .capa { grid-template-columns: 1fr; gap: 8px; }
     .work-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
     .gallery-track { grid-auto-columns: 84%; gap: 14px; }
     .social-list { grid-template-columns: 1fr; gap: 12px; }
