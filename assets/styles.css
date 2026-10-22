@@ -35,11 +35,6 @@
 
     /* Fichas de los pilares del inicio. El rosa perla sale del perla del logo. */
     --rosa-perla: #E3C4C9;
-    --rosa-intenso: #B9808B;              /* puntos de la lista sobre blanco */
-    --panel-light: #FFFFFF;               /* recuadros blancos sobre las fichas */
-    --ink-on-light: #1E242B;
-    --ink-on-light-soft: #4A5562;
-    --line-on-light: rgba(12,14,16,0.10);
     --panel-glass: rgba(245,241,242,0.10); /* recuadro de vidrio de la ficha oscura */
     --panel-glass-line: rgba(245,241,242,0.20);
     --glow-blanco: rgba(255,255,255,0.55);
@@ -677,22 +672,24 @@
       linear-gradient(160deg, var(--perla) 0%, var(--rosa-perla) 100%);
   }
 
+  /* Recuadros de las fichas laterales: en tinta, el tono más oscuro de la
+     paleta, con el texto en perla (más presencia y uniformidad con la central). */
   .pcard-panel {
     position: relative; min-height: var(--pcard-panel-min); padding: 14px 16px 12px; border-radius: 10px;
-    background: var(--panel-light); color: var(--ink-on-light); box-shadow: var(--shadow);
+    background: var(--tinta); color: var(--perla); border: 1px solid var(--line); box-shadow: var(--shadow);
   }
   .pcard-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding-bottom: 8px; }
   .pcard-head h3 { margin: 0; font: 600 14.5px/1.35 var(--font-text); letter-spacing: 0; color: inherit; }
-  .pcard-head > span { flex-shrink: 0; font-size: 12px; color: var(--ink-on-light-soft); }
+  .pcard-head > span { flex-shrink: 0; font-size: 12px; color: var(--suave); }
 
   .pcard-rows { list-style: none; margin: 0; padding: 0; }
   .pcard-rows li {
     display: flex; align-items: center; gap: 10px; padding: 9px 0;
-    border-top: 1px solid var(--line-on-light); font-size: 13.5px; line-height: 1.4;
+    border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.4;
   }
-  .pcard-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--rosa-intenso); }
+  .pcard-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--rosa-perla); }
   .pcard-ice .pcard-dot { background: var(--acero); }
-  .pcard-ok { margin-left: auto; font-size: 12px; color: var(--acero-profundo); }
+  .pcard-ok { margin-left: auto; font-size: 12px; color: var(--hielo); }
 
   /* Recuadro central: vidrio translúcido sobre el bloque oscuro. */
   .pcard-glass {
