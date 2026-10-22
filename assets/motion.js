@@ -10,6 +10,7 @@
   var selector = [
     '.hero > *', '.closing > *',
     '.section-head > *',
+    '.pillar-rail > *', '.pcard',
     '.feat-grid > *', '.capa', '.work-steps > *', '.gallery', '.social-list > *', '.product-row > *', '.split-media', '.access-grid > *', '.contact-grid > *',
     '.price-card', '.faq-item', '.steps > *', '.box',
     '.cta-row', '.access-note', '.price-explain'
