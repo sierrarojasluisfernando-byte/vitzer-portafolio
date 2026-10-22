@@ -317,6 +317,7 @@
     background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
   }
   .feat-grid > div { background: var(--surface); padding: 26px 28px; }
+  .feat-grid > .feat-wide { grid-column: 1 / -1; }
   .feat-grid h4 { margin: 0 0 6px; font-size: 16px; }
   .feat-grid p { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
   @media (max-width: 640px) { .feat-grid { grid-template-columns: 1fr; } }
